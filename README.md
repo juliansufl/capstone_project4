@@ -25,5 +25,17 @@ With this we seek for the information that is mutual in the base and joining it 
 
 ![image](https://user-images.githubusercontent.com/60525865/201498595-b7e7305a-f98e-4804-9bc5-397bcd7889cd.png)
 
+After this we looking for strage behavior in the information
+
+![Nulls](https://user-images.githubusercontent.com/60525865/201498768-b64d8b64-3850-4f14-95ab-26c1a662a22f.png)
+
+We just have null information in the occupation varible that is good.
+
+Now us we said in the beginning we want to predict the PD of the clients that have information in the last 12 months for that reason we need to find those clients and get the information, for that we filter the clients that have 11 months of credit balance information and after look for them in the current month us 0 and that we know that we have the 12 months.
+
+![clients_12](https://user-images.githubusercontent.com/60525865/201498946-419d3031-b3e2-4ce1-9a93-8af06e64676d.png)
+
+
+
 
 
