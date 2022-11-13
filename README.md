@@ -23,7 +23,7 @@ As we mention in the introduction we have information in two resources clients a
 
 With this we seek for the information that is mutual in the base and joining it have one base:
 
-![image](https://user-images.githubusercontent.com/60525865/201498595-b7e7305a-f98e-4804-9bc5-397bcd7889cd.png)
+![df](https://user-images.githubusercontent.com/60525865/201541758-3414ca65-5ea4-4eb4-889a-97890757279f.png)
 
 After this we looking for strage behavior in the information
 
