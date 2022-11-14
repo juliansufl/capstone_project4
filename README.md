@@ -104,7 +104,7 @@ Before the modeling process it is necessary to devide the data into train and te
 
 ![bgi_balance](https://user-images.githubusercontent.com/60525865/201549305-83912a8f-bc20-4528-9585-4a4b109b6e81.png)
 
-This balance just had done in the train bases because when we implement a model and need to do prediction base in new data we are not going to have that on balanced for that reason we do it this way, and get prediction base on that. Also create code that let us preprocess numerical features with robust RobustScaler and categorical features with One Hot Enconder that inside have 'sparse = False' that help us to drop a one level if the feature have only 2.
+This balance just had done in the train bases because when we implement a model and need to do prediction base in new data we are not going to have that on balanced for that reason we do it this way, and get prediction base on that. Also create code that let us preprocess numerical features with robust RobustScaler and categorical features.
 
     ''' 
     # get the numerical variables names
@@ -126,7 +126,7 @@ This balance just had done in the train bases because when we implement a model 
 
 ### XGBoost Classifier Implementation
 
-For modeling we will use a the Extreme Gradient Boost Classifier (XG-Boost). This method has emsembles from decision tree models, that added trees one by one to emsemble and fit the correct error of prediction that are made for each run by prior models. This kind of models as know as a boosting.
+For modeling we will use a the Extreme Gradient Boost Classifier (XGBoost). This method has emsembles from decision tree models, that added trees one by one to emsemble and fit the correct error of prediction that are made for each run by prior models. This kind of models as know as a boosting.
 
 As we implement a model, this run by default parameters but this kind change by using a parameter tuning. This is the common parameters.
 
@@ -153,7 +153,7 @@ To get the best parameters we use the metric "error" and "auc" with this we secu
 
 ![image](https://user-images.githubusercontent.com/60525865/201550104-4c57eba0-86bd-44d9-bd87-84cf945b59ef.png)
 
-When the XGBoost select between the pull of values that we put on each parameter, those that help to increase the AUC and reduce the error. In the image above we can see a clear example of how the algorithm works. For the hyperparameter 'gamma' we put the values of [0,0.1, 0.3] and the model found within its internal optimization processes that using the value of 0.3 is better than others. That happen with every one of them.
+When the XGBoost select between the pull of values that we put on each parameter, those help ud to reduce the error to get the best parameters. In the image above we can see a clear example of how the algorithm works. For the parameter 'gamma' we put the values of [0,0.1, 0.3] and the model found a optimization processes that using the value of 0.3 is better than others. That happen with every one of them that we difene in the grid.
 
 ## Part 3: Results
 
@@ -163,13 +163,13 @@ When the XGBoost select between the pull of values that we put on each parameter
 
 After we implement the model we can see that we are getting a F1 score the 14.29% for prediction for new bad clients, the importance of F1 score helps for taking into the count the precision to identify new cases and the recall for that new cases in the model. Also we can see that we the balance data tha we use and the test unbalance we are getting a good accurancy base in the model and the variables that we are using.
 
-In the banking business the uses manchine learning models have generate doubt prefer not to use this type of models because they think that is a black box and their interpretability is complex. With the help of the SHAP package we will show that this is not the case.
+In the banking business the uses manchine learning models have generate doubt prefer not to use this type of models because they think that is a black box and it is complex. With the help of the SHAP package that have the shapley values methos it is posible to example how this black box works when we iterature with the variables.
 
-In first place we can use 'plot.importance' for plot the 'Feature Weight', 'Split Mean Gain' and 'Sample Coverage'. The meaning of each one are:
+In first place, the package hace plot for importance and Weight Feature, has Split Mean Gain and Sample Coverage. The meaning of each are:
 
 - Feature Weight: The weight of each feature
 
-- Split Mean Gain: Implies the relative contribution of the corresponding characteristic to the model. A higher value for this metric compared to another characteristic means that it is more important for generating a prediction.
+- Split Mean Gain: Implies the relative contribution of the corresponding characteristic to the model. A higher value for this metric compared to another features means that it is more important for generating a prediction.
 
 - Sample Coverage: Means the relative number of observations related to this characteristic.
 
@@ -185,9 +185,9 @@ As we can see this indicate us when the variable is in blue color that this rang
 
 ### Justification
 
-The results that we obtain are two reasons. First, the XG-Boost model minimizes a regularized objective function (L1 and L2) that incorporates a convex loss function and a penalty term for model complexity. Inserting new trees that predict errors from previous trees that are then combined with previous trees. This is the reason why this model has become so popular and has won so many challenge contests.
+The results that we obtain are two reasons. First, the XGBoost model reduce the regularization, that have method as L1 and L2, that give more complexity in the model. The creation of new trees that predict errors from previous trees that are then combined with previous trees. This is the reason why this model has become so popular and has won so many challenge contests for the performance for iteration.
 
-The last one is that during the process we explained the paramater tunning, we did not use the default hyperparameters and gave the model the option to select the best parameters.
+The last one is that during the process we explained the paramater tunning, we did not use the default paramerters, we use a model with the option to select the best parameters.
 
 ## Part 4: Conclusion
 
@@ -199,7 +199,7 @@ Non-payment was define as 60 days or more without pay that give us the dependent
 
 With the implementation of diferents models and getting the best model as XGBoost Classifier that have the best F1 score base in the way that precision and recall relation for this metric and also when we have unbalanced target, also making a comparative with a random forest model other model base in tree has more prediction of bad clients in time as show the imagen above.
 
-Use the black box machine learning models work quite well in the banking business. This can explain the behavior of all characteristics by analyzing the data before modeling and using plot importance and the shap values after modeling. It is very important when we are going to build a credit risk model for the default in the last 12 months for the information of each client.
+Use the black box machine learning models work quite well in the banking business. This can explain the behavior of all features, using analyze within the data before modeling, be able to using shapley velues to understand the iteration with the features with the model it is a huge advantage. It is important when we are going to implement a credit risk model for the default in the last 12 months for the information of each client and make sure that the clients have the period of time.
 
 In conclusion the model select it is posible to determine 10.83% more of bad clients base in the information have, this means that in bank if you put as a credit 1 millon of dolars you are able to loss 100k, when before you are just viable to predict 2k of lossing in the long run that is a problem for the business of credit that you want to recolect the money that you lend and get the interest from that.
 
