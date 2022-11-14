@@ -163,7 +163,7 @@ When the XGBoost select between the pull of values that we put on each parameter
 
 After we implement the model we can see that we are getting a F1 score the 14.29% for prediction for new bad clients, the importance of F1 score helps for taking into the count the precision to identify new cases and the recall for that new cases in the model. Also we can see that we the balance data tha we use and the test unbalance we are getting a good accurancy base in the model and the variables that we are using.
 
-In the banking business the uses manchine learning models have generate doubt prefer not to use this type of models because they think that is a black box and it is complex. With the help of the SHAP package that have the shapley values methos it is posible to example how this black box works when we iterature with the variables.
+In the banking business the uses manchine learning models have generate doubt prefer not to use this type of models because they think that is a black box and it is complex. With the help of the SHAP package that have the shapley values method, it is posible to example how this black box works when we iterature with the variables.
 
 In first place, the package hace plot for importance and Weight Feature, has Split Mean Gain and Sample Coverage. The meaning of each are:
 
