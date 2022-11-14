@@ -155,7 +155,7 @@ To get the best parameters we use the metric "error" and "auc" with this we secu
 
 When the XGBoost select between the pull of values that we put on each parameter, those that help to increase the AUC and reduce the error. In the image above we can see a clear example of how the algorithm works. For the hyperparameter 'gamma' we put the values of [0,0.1, 0.3] and the model found within its internal optimization processes that using the value of 0.3 is better than others. That happen with every one of them.
 
-## Results
+## Part 3: Results
 
 ![results](https://user-images.githubusercontent.com/60525865/201550443-c20e8fc6-7108-4714-baf3-99abccae1570.png)
 
@@ -189,7 +189,7 @@ The results that we obtain are two reasons. First, the XG-Boost model minimizes 
 
 The last one is that during the process we explained the paramater tunning, we did not use the default hyperparameters and gave the model the option to select the best parameters.
 
-# Conclusion
+## Part 4: Conclusion
 
 ![image](https://user-images.githubusercontent.com/60525865/201551763-4209dc10-bc89-4858-9184-c6a27b9634c1.png)
 
