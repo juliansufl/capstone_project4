@@ -175,6 +175,32 @@ In first place we can use 'plot.importance' for plot the 'Feature Weight', 'Spli
 
 ![featuer](https://user-images.githubusercontent.com/60525865/201550960-6dc69832-16ec-4b63-b7b8-63cb274e8802.png)
 
-In the graphic we can see that the 13 features uses in the model have some relevance in the model but some do not have the some much importance, for exemple 'NAME_HOUSING_TYPE', 'NAME_FAMILY_STATUS', 'FLAG_EMAIL' and 'AGE_EMPLOY', that varaibles do no get the best for prediction of bad clients. However, 'STATE_PROPERTY', 'CARS','NAME_EDUCATION_TYPE' and 'NAME_INCOME_TYPE' are the variables with more importance 
+In the graphic we can see that the 13 features uses in the model have some relevance in the model but some do not have the some much importance, for exemple 'NAME_HOUSING_TYPE', 'NAME_FAMILY_STATUS', 'FLAG_EMAIL' and 'AGE_EMPLOY', that varaibles do no get the best for prediction of bad clients. However, 'STATE_PROPERTY', 'CARS','NAME_EDUCATION_TYPE' and 'NAME_INCOME_TYPE' are the variables with more importance for predict the bad clients.
+
+Shap packages have also a plot with detail with blue how positive afect the variable and red for how bad afect the variable to predict for new cases.
+
+![shap](https://user-images.githubusercontent.com/60525865/201551459-8f1175a3-f5af-4647-8b40-3ff8571fd59a.png)
+
+As we can see this indicate us when the variable is in blue color that this range decreases the prediction of the probability that the client will have non-payment in the future. On the other hand, when the variable is in the red color, its default probability prediction begins to increase.
+
+### Justification
+
+The results that we obtain are two reasons. First, the XG-Boost model minimizes a regularized objective function (L1 and L2) that incorporates a convex loss function and a penalty term for model complexity. Inserting new trees that predict errors from previous trees that are then combined with previous trees. This is the reason why this model has become so popular and has won so many challenge contests.
+
+The last one is that during the process we explained the paramater tunning, we did not use the default hyperparameters and gave the model the option to select the best parameters.
+
+# Conclusion
+
+![image](https://user-images.githubusercontent.com/60525865/201551763-4209dc10-bc89-4858-9184-c6a27b9634c1.png)
+
+The propuse of this blog was to identify which variables are the best for predict the probability of default in clients that have credit cards aprovals, taking into the count clients that have information in the last 12 months and the max of non-payment in that period of time and getting the nowadays information.
+
+Non-payment was define as 60 days or more without pay that give us the dependent variable and after looking for the clients that really have 12 month of information. When we implement the models knew that we have a unbalanced target we used a SMOTE for balanced.
+
+With the implementation of diferents models and getting the best model as XGBoost Classifier that have the best F1 score base in the way that precision and recall relation for this metric and also when we have unbalanced target, also making a comparative with a random forest model other model base in tree has more prediction of bad clients in time as show the imagen above.
+
+Use the black box machine learning models work quite well in the banking business. This can explain the behavior of all characteristics by analyzing the data before modeling and using plot importance and the shap values after modeling. It is very important when we are going to build a credit risk model for the default in the last 12 months for the information of each client.
+
+In conclusion the model select it is posible to determine 10.83% more of bad clients base in the information have, this means that in bank if you put as a credit 1 millon of dolars you are able to loss 100k, when before you are just viable to predict 2k of lossing in the long run that is a problem for the business of credit that you want to recolect the money that you lend and get the interest from that.
 
 
